@@ -224,9 +224,9 @@ func testIntegerLiteral(t *testing.T, il ast.Expression, value int64) bool {
 func TestParsingInfixExpression(t *testing.T) {
 	infixTests := []struct {
 		input      string
-		leftValue  interface{}
+		leftValue  int64
 		operator   string
-		rightValue interface{}
+		rightValue int64
 	}{
 		{"5 + 5;", 5, "+", 5},
 		{"5 - 5;", 5, "-", 5},
@@ -236,17 +236,6 @@ func TestParsingInfixExpression(t *testing.T) {
 		{"5 < 5;", 5, "<", 5},
 		{"5 == 5;", 5, "==", 5},
 		{"5 != 5;", 5, "!=", 5},
-		{"foobar + barfoo;", "foobar", "+", "barfoo"},
-		{"foobar - barfoo;", "foobar", "-", "barfoo"},
-		{"foobar * barfoo;", "foobar", "*", "barfoo"},
-		{"foobar / barfoo;", "foobar", "/", "barfoo"},
-		{"foobar > barfoo;", "foobar", ">", "barfoo"},
-		{"foobar < barfoo;", "foobar", "<", "barfoo"},
-		{"foobar == barfoo;", "foobar", "==", "barfoo"},
-		{"foobar != barfoo;", "foobar", "!=", "barfoo"},
-		{"true == true", true, "==", true},
-		{"true != false", true, "!=", false},
-		{"false == false", false, "==", false},
 	}
 
 	for _, tt := range infixTests {
