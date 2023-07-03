@@ -59,3 +59,7 @@ func Make(op Opcode, operands ...int) []byte {
 
 	return instruction
 }
+
+func (ins Instructions) String() string {
+	return ""
+}
