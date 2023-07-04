@@ -44,7 +44,7 @@ func (c *Compiler) Compile(node ast.Node) error {
 		}
 
 	case *ast.IntegerLiteral:
-		// TODO
+		integer := &object.Integer{Value: node.Value}
 	}
 
 	return nil
@@ -60,4 +60,9 @@ func (c *Compiler) Bytecode() *Bytecode {
 type Bytecode struct {
 	Instructions code.Instructions
 	Constants    []object.Object
+}
+
+func (c *Compiler) addConstant(obj object.Object) int {
+	c.constants = append(c.constants, obj)
+	return len(c.constants) - 1
 }
