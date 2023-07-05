@@ -39,6 +39,32 @@ func runVmTests(t *testing.T, tests []vmTestCase) {
 	}
 }
 
+func TestIntegerArithmetic(t *testing.T) {
+	tests := []vmTestCase{
+		{"1", 1},
+		{"2", 2},
+		{"1 + 2", 2},
+	}
+
+	runVmTests(t, tests)
+}
+
+func testExpectedObject(
+	t *testing.T,
+	expected interface{},
+	actual object.Object,
+) {
+	t.Helper()
+
+	switch expected := expected.(type) {
+	case int:
+		err := testIntegerObject(int64(expected), actual)
+		if err != nil {
+			t.Errorf("testIntegerObject failed: %s", err)
+		}
+	}
+}
+
 func parse(input string) *ast.Program {
 	l := lexer.New(input)
 	p := parser.New(l)
