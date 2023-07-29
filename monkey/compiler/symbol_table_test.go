@@ -18,7 +18,7 @@ func TestDefine(t *testing.T) {
 	}
 
 	b := global.Define("b")
-	if a != expected["b"] {
+	if b != expected["b"] {
 		t.Errorf("expected b=%+v, got=%+v", expected["b"], a)
 	}
 }
@@ -45,5 +45,4 @@ func TestResolveGlobal(t *testing.T) {
 				sym.Name, sym, result)
 		}
 	}
-
 }
