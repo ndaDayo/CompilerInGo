@@ -165,7 +165,7 @@ func testConstants(
 		case string:
 			err := testStringObject(constant, actual[i])
 			if err != nil {
-				return fmt.Errorf("constant % - testStringObject failed: %s", i, err)
+				return fmt.Errorf("constant %d - testStringObject failed: %s", i, err)
 			}
 		}
 	}
