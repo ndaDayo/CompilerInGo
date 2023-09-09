@@ -15,11 +15,20 @@ type Compiler struct {
 	lastInstruction     EmittedInstruction
 	previousInstruction EmittedInstruction
 	symbolTable         *SymbolTable
+
+	scopes     []CompilationScope
+	scopeIndex int
 }
 
 type EmittedInstruction struct {
 	Opcode   code.Opcode
 	Position int
+}
+
+type CompilationScope struct {
+	instructions        code.Instructions
+	lastInstruction     EmittedInstruction
+	previousInstruction EmittedInstruction
 }
 
 func New() *Compiler {
