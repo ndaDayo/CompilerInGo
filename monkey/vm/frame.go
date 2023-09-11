@@ -6,11 +6,11 @@ import (
 )
 
 type Frame struct {
-	fn *object.CompileFunction
+	fn *object.CompiledFunction
 	ip int
 }
 
-func NewFrame(fn *object.CompileFunction) *Frame {
+func NewFrame(fn *object.CompiledFunction) *Frame {
 	return &Frame{fn: fn, ip: -1}
 }
 
