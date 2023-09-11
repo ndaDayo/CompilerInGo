@@ -184,11 +184,11 @@ func (h *Hash) Inspect() string {
 	return out.String()
 }
 
-type CompileFunction struct {
+type CompiledFunction struct {
 	Instructions code.Instructions
 }
 
-func (cf *CompileFunction) Type() ObjectType { return COMPILED_FUNCTION_OBJ }
-func (cf *CompileFunction) Inspect() string {
+func (cf *CompiledFunction) Type() ObjectType { return COMPILED_FUNCTION_OBJ }
+func (cf *CompiledFunction) Inspect() string {
 	return fmt.Sprintf("CompileFunction[%p]", cf)
 }
