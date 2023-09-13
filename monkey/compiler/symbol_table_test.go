@@ -92,7 +92,7 @@ func TestResolveLocal(t *testing.T) {
 	}
 
 	for _, sym := range expected {
-		result, ok := local.Reslove(sym.Name)
+		result, ok := local.Resolve(sym.Name)
 		if !ok {
 			t.Errorf("name %s not resolvable", sym.Name)
 			continue

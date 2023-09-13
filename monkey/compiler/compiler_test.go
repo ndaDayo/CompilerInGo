@@ -220,7 +220,7 @@ func testConstants(
 				return fmt.Errorf("constant %d - testStringObject failed: %s", i, err)
 			}
 		case []code.Instructions:
-			fn, ok := actual[i].(*object.CompileFunction)
+			fn, ok := actual[i].(*object.CompiledFunction)
 			if !ok {
 				return fmt.Errorf("constant %d - not a function: %T", i, actual[i])
 			}
