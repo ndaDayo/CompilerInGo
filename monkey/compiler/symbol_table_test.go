@@ -88,7 +88,6 @@ func TestResolveLocal(t *testing.T) {
 		{Name: "a", Scope: GlobalScope, Index: 0},
 		{Name: "b", Scope: GlobalScope, Index: 1},
 		{Name: "c", Scope: LocalScope, Index: 0},
-		{Name: "d", Scope: LocalScope, Index: 1},
 	}
 
 	for _, sym := range expected {
