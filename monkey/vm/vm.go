@@ -480,9 +480,12 @@ func NewWithGlobalsStore(bytecode *compiler.Bytecode, s []object.Object) *VM {
 
 func (vm *VM) callFunction(numArgs int) error {
 	fn, ok := vm.stack[vm.sp-1-numArgs].(*object.CompiledFunction)
-
 	if !ok {
 		return fmt.Errorf("calling non-function")
+	}
+
+	if numArgs != fn.NumParameters {
+		return fmt.Errorf("wrong number of arguments: want=%d, got=%d", fn.NumParameters, numArgs)
 	}
 
 	frame := NewFrame(fn, vm.sp-numArgs)
